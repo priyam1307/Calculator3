@@ -1,0 +1,2 @@
+D:\Priya\Xamarin\Projects\MortgageCalculatorApp\MortgageCalculatorApp\MortgageCalculatorApp.Windows\MortgageCalculatorApp.Windows.csproj;neutral
+D:\Priya\Xamarin\Projects\MortgageCalculatorApp\MortgageCalculatorApp\MortgageCalculatorApp\MortgageCalculatorApp.csproj;neutral

@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:validator="clr-namespace:MortgageCalculatorApp.ValidatorBehavior;assembly=MortgageCalculatorApp"
+             x:Class="MortgageCalculatorApp.Pages.MortgageCalculatorPage">
+
+  <Grid RowSpacing="0" x:Name="innerGrid">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="40" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="40" />
+    </Grid.RowDefinitions>
+
+    <!--  row background colors  -->
+    <BoxView Grid.Row="0" Color="#D97A0D" />
+    <BoxView Grid.Row="1" Color="#c3f1ff"/>
+    <BoxView Grid.Row="2" Color="#bfbfbf"/>
+    <!--  title  -->
+  
+    <Label FontSize="22" HorizontalOptions="Center" Text="Mortgage Calculator"
+           TextColor="White" VerticalOptions="Center" />
+    <!--  inner grid for button layouts  -->
+    <Grid x:Name="controlsGrid" Grid.Row="1" ColumnSpacing="30" HorizontalOptions="CenterAndExpand"
+          RowSpacing="30" VerticalOptions="CenterAndExpand">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+    </Grid>
+    <!-- left,top,right,bottom-->
+    <ScrollView Grid.Row="1">
+      <StackLayout x:Name="outerStack">
+      <StackLayout Spacing="0" Padding="0">
+        <StackLayout Spacing="0" Padding="20,15,20,0">
+          <StackLayout HeightRequest="35" Orientation="Horizontal">
+            <Label FontSize="14" Text="Mortgage Amount:" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="150" />
+            <Entry HorizontalOptions="FillAndExpand" FontSize="14" BackgroundColor="White" TextColor="Black" x:Name="loanAmount" Keyboard="Numeric" Focused="LoanAmountFocused" Unfocused="LoanAmountUnfocused">
+              <Entry.Behaviors>
+                <validator:RequiredValidator x:Name="loanAmountValidator"/>
+              </Entry.Behaviors>
+            </Entry>
+          </StackLayout>
+          <StackLayout HeightRequest="18" Orientation="Horizontal">
+            <Label FontSize="14" TextColor="Black"
+          HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="148"/>
+            <Label HorizontalOptions="FillAndExpand" FontSize="12" TextColor="Red" x:Name="lblloanAmount"/>
+          </StackLayout>
+          <StackLayout HeightRequest="35" Orientation="Horizontal">
+            <Label FontSize="14" Text="Interest Rate %:" TextColor="Black"
+            HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="150" />
+            <Entry HorizontalOptions="FillAndExpand" FontSize="14" BackgroundColor="White" TextColor="Black" Focused="InterestRateFocused" Unfocused="InterestRateUnfocused" x:Name="interestRate" Keyboard="Numeric">
+              <Entry.Behaviors>
+                <validator:RequiredValidator x:Name="interestRateValidator"/>
+              </Entry.Behaviors>
+            </Entry>
+          </StackLayout>
+          <StackLayout HeightRequest="18" Orientation="Horizontal">
+            <Label FontSize="14" TextColor="Black"
+          HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="148"/>
+            <Label HorizontalOptions="FillAndExpand" FontSize="12" TextColor="Red" x:Name="lblinterestRate"/>
+          </StackLayout>
+          <StackLayout HeightRequest="35" Orientation="Horizontal">
+            <Label FontSize="14" Text="Term in years:" TextColor="Black"
+            HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="150"/>
+            <Entry HorizontalOptions="FillAndExpand" FontSize="14" BackgroundColor="White" TextColor="Black" Focused="TermInYearFocused" Unfocused="TermInYearUnfocused" x:Name="termInYear" Keyboard="Numeric">
+              <Entry.Behaviors>
+                <validator:RequiredValidator x:Name="termInYearValidator"/>
+              </Entry.Behaviors>
+            </Entry>
+          </StackLayout>
+          <StackLayout HeightRequest="18" Orientation="Horizontal">
+            <Label FontSize="14" TextColor="Black"
+          HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="148"/>
+            <Label HorizontalOptions="FillAndExpand" FontSize="12" TextColor="Red" x:Name="lblTermInYear"/>
+          </StackLayout>
+          <StackLayout HeightRequest="20" Orientation="Horizontal">
+            <Label FontSize="14" Text="Payment Frequency:" TextColor="Black"
+          HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="150"/>
+          </StackLayout>
+          <StackLayout Orientation="Horizontal" HeightRequest="40" Padding="20,0,20,0">
+            <StackLayout Spacing="0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+              <Button FontSize="13" TextColor="Black" BorderColor="#78b3c6" Text="Monthly" Clicked="MonthlyClicked" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+            </StackLayout>
+            <StackLayout Spacing="0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+              <Button FontSize="13" TextColor="Black" BorderColor="#78b3c6" Clicked="WeeklyClicked" Text="Bi-Weekly" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+            </StackLayout>
+          </StackLayout>
+          <StackLayout Padding="0,2,0,0"/>
+          <StackLayout HeightRequest="35" Orientation="Horizontal" HorizontalOptions="Center" Padding="5">
+            <StackLayout Spacing="0" Orientation="Horizontal" HorizontalOptions="Center">
+              <Button FontSize="13" BackgroundColor="Green" TextColor="White" Clicked="CalculateClicked" Text="Calculate" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" />
+            </StackLayout>
+
+          </StackLayout>
+
+          <StackLayout Padding="0,5,0,0"/>
+          <StackLayout HeightRequest="35" Orientation="Horizontal">
+            <Label FontSize="14" Text="Est. Payment amount:" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="150" />
+            <Entry HorizontalOptions="FillAndExpand" FontSize="14" BackgroundColor="White" x:Name="estPaymentAmount" TextColor="Black"/>
+          </StackLayout>
+          <StackLayout Padding="0,10,0,0"/>
+          <StackLayout HeightRequest="35" Orientation="Horizontal">
+            <Label FontSize="14" Text="Total of Payments:" TextColor="Black"
+            HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="150" />
+            <Entry HorizontalOptions="FillAndExpand" FontSize="14" BackgroundColor="White" x:Name="totalPayment" TextColor="Black"/>
+          </StackLayout>
+          <StackLayout Padding="0,10,0,0"/>
+          <StackLayout HeightRequest="35" Orientation="Horizontal">
+            <Label FontSize="14" Text="Total Interest:" TextColor="Black"
+            HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="150"/>
+            <Entry HorizontalOptions="FillAndExpand" FontSize="14" BackgroundColor="White" x:Name="totalInterest" TextColor="Black"/>
+          </StackLayout>
+        </StackLayout>
+      </StackLayout>
+      </StackLayout>
+  </ScrollView>
+  
+    <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+      <Label FontSize="20" HorizontalOptions="Center" TextColor="White" Text="Advertisement view goes here"
+        VerticalOptions="Center" />
+    </StackLayout>
+  </Grid>
+
+</ContentPage>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MortgageCalculatorApp.Pages.HomePage"> 
+  <Grid RowSpacing="0">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="50" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="50" />
+    </Grid.RowDefinitions>
+
+    <!--  row background colors  -->
+    <BoxView Grid.Row="0" Color="#D97A0D" />
+    <BoxView Grid.Row="1" Color="#c3f1ff" />
+    <BoxView Grid.Row="2" Color="#bfbfbf"/>
+
+    <StackLayout Grid.Row="0" HorizontalOptions="End">
+      <Button Image="Picture1.png" BorderColor="Transparent" BackgroundColor="Transparent" WidthRequest="70" Clicked="OnOpenPopup"></Button>
+    </StackLayout>
+    <!--  title  -->
+    <Label FontSize="22" HorizontalOptions="Center" Text="Financial Calculators"
+           TextColor="White" VerticalOptions="Center" />
+    <!--  inner grid for button layouts  -->
+    <Grid Grid.Row="1" ColumnSpacing="30" HorizontalOptions="Center"
+          RowSpacing="30" VerticalOptions="Center">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+    </Grid>
+    <!-- left,top,right,bottom-->
+    <StackLayout Grid.Row="1" Padding="50,100,50,10">
+      <Button x:Name="Btn" BorderColor="#78b3c6" TextColor="Black" Clicked="ButtonClicked" Text="Mortgage Calculator"></Button>
+    </StackLayout>
+    <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+      <Label FontSize="20" HorizontalOptions="Center" TextColor="White" Text="Advertisement view goes here"
+        VerticalOptions="Center" />
+    </StackLayout>
+  </Grid>
+</ContentPage>

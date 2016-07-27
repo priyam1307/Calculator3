@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+  <pages:PopupPage  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="MortgageCalculatorApp.Pages.PopupContentPage">
+
+    <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+      <StackLayout BackgroundColor="#D97A0D" Padding="30, 5, 30, 0">
+        <StackLayout HorizontalOptions="End">
+          <Button Image="Picture2.png" BorderColor="Transparent" BackgroundColor="Transparent" WidthRequest="70" x:Name="CloseBtn" Clicked="OnClose"></Button>
+        </StackLayout>
+        <StackLayout>
+          <Image Source="knila.png"/>
+        </StackLayout>
+        <StackLayout Padding="0, 20, 0, 0">
+          <Label FontFamily="Times New Roman" TextColor="Black" FontSize="15" Text="Calculations provided are estimate only."/>
+        </StackLayout>
+        <StackLayout Padding="20, 50, 0, 40">
+          <StackLayout>
+            <Label FontFamily="Times New Roman" TextColor="Black" FontSize="15" Text="Developed using Xamarin by"/>
+          </StackLayout>
+          <StackLayout Padding="25, 0, 0,0">
+           
+            <Label FontFamily="Times New Roman" TextColor="Black" FontSize="15" Text="www.knila.com" />
+          </StackLayout>
+        </StackLayout>
+      </StackLayout>
+    </StackLayout>
+  </pages:PopupPage>
